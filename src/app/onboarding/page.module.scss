@@ -1,0 +1,361 @@
+@import '@/styles/variables';
+@import '@/styles/mixins';
+
+.onboarding {
+  min-height: 100vh;
+  background: $gray-50;
+  padding: $spacing-md;
+  @include flex-center;
+  flex-direction: column;
+  
+  @media (prefers-color-scheme: dark) {
+    background: #221022;
+  }
+}
+
+.container {
+  width: 100%;
+  max-width: 1024px;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-2xl;
+  padding: $spacing-2xl 0;
+}
+
+// Progress Section
+.progress-section {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 0 $spacing-md;
+}
+
+.progress-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  
+  .step-text {
+    font-size: 14px;
+    font-weight: 500;
+    color: #475569;
+    margin: 0;
+    
+    @media (prefers-color-scheme: dark) {
+      color: #cbd5e1;
+    }
+  }
+}
+
+.progress-bar-container {
+  height: 8px;
+  width: 100%;
+  border-radius: 9999px;
+  background: #e2e8f0;
+  overflow: hidden;
+  
+  @media (prefers-color-scheme: dark) {
+    background: #334155;
+  }
+}
+
+.progress-bar {
+  height: 100%;
+  border-radius: 9999px;
+  background: #ee2bee;
+  transition: width 0.3s ease;
+}
+
+.progress-label {
+  font-size: 12px;
+  font-weight: 400;
+  color: #64748b;
+  margin: 0;
+  
+  @media (prefers-color-scheme: dark) {
+    color: #94a3b8;
+  }
+}
+
+// Page Heading
+.page-heading {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-sm;
+  padding: 0 $spacing-md;
+  
+  h1 {
+    font-size: 36px;
+    font-weight: 800;
+    letter-spacing: -0.025em;
+    color: #0f172a;
+    margin: 0;
+    
+    @media (prefers-color-scheme: dark) {
+      color: #ffffff;
+    }
+  }
+  
+  p {
+    font-size: 16px;
+    font-weight: 400;
+    color: #475569;
+    margin: 0;
+    
+    @media (prefers-color-scheme: dark) {
+      color: #94a3b8;
+    }
+  }
+}
+
+// Form Content
+.form-content {
+  padding: 0 $spacing-md;
+}
+
+// Skin Tone Selection
+.skin-tone-options {
+  display: flex;
+  justify-content: space-around;
+  gap: $spacing-lg;
+  margin-bottom: $spacing-xl;
+  flex-wrap: wrap;
+}
+
+.skin-tone-option {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  transition: all $transition-base;
+  position: relative;
+  
+  &:hover {
+    transform: scale(1.05);
+  }
+  
+  .tone-circle {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    border: 4px solid transparent;
+    margin-bottom: $spacing-sm;
+    transition: all $transition-base;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  &.selected .tone-circle {
+    border-color: #ee2bee;
+    box-shadow: 0 0 0 4px rgba(238, 43, 238, 0.2);
+  }
+  
+  .tone-label {
+    font-size: $font-size-sm;
+    color: #475569;
+    font-weight: 500;
+    
+    @media (prefers-color-scheme: dark) {
+      color: #cbd5e1;
+    }
+  }
+  
+  .check-icon {
+    position: absolute;
+    top: 0;
+    right: 10px;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: #ee2bee;
+    color: white;
+    @include flex-center;
+    transform: scale(0);
+    transition: transform 0.2s ease;
+  }
+  
+  &.selected .check-icon {
+    transform: scale(1);
+  }
+}
+
+.upload-section {
+  margin-top: $spacing-xl;
+  padding: $spacing-xl;
+  border: 2px dashed #cbd5e1;
+  border-radius: 12px;
+  text-align: center;
+  transition: all $transition-base;
+  
+  &:hover {
+    border-color: #ee2bee;
+    background: rgba(238, 43, 238, 0.02);
+  }
+  
+  .upload-icon {
+    color: #94a3b8;
+    margin-bottom: $spacing-md;
+  }
+  
+  p {
+    color: #64748b;
+    margin-bottom: $spacing-md;
+    
+    @media (prefers-color-scheme: dark) {
+      color: #94a3b8;
+    }
+  }
+}
+
+// Image Grid for Event Types
+.image-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(158px, 1fr));
+  gap: $spacing-md;
+}
+
+.image-card {
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+  border-radius: 12px;
+  transition: transform 0.2s ease;
+  
+  &:hover .card-overlay {
+    background: rgba(0, 0, 0, 0.2);
+  }
+  
+  &.selected .card-overlay {
+    box-shadow: inset 0 0 0 4px #ee2bee;
+  }
+  
+  &.selected .check-badge {
+    transform: scale(1);
+  }
+}
+
+.card-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+  border-radius: 12px;
+  transition: all 0.2s ease;
+}
+
+.check-badge {
+  position: absolute;
+  right: 12px;
+  top: 12px;
+  z-index: 20;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: #ee2bee;
+  color: white;
+  @include flex-center;
+  transform: scale(0);
+  transition: transform 0.2s ease;
+}
+
+.card-image {
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: $spacing-md;
+  aspect-ratio: 3/4;
+  border-radius: 12px;
+  
+  .card-label {
+    color: white;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1.2;
+    z-index: 10;
+    margin: 0;
+  }
+}
+
+// Style Grid
+.style-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: $spacing-md;
+}
+
+.style-card {
+  position: relative;
+  padding: $spacing-xl;
+  border-radius: 12px;
+  border: 2px solid #e2e8f0;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  background: white;
+  
+  @media (prefers-color-scheme: dark) {
+    background: #1e293b;
+    border-color: #334155;
+  }
+  
+  &:hover {
+    border-color: #ee2bee;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(238, 43, 238, 0.1);
+  }
+  
+  &.selected {
+    border-color: #ee2bee;
+    background: rgba(238, 43, 238, 0.05);
+    
+    .check-badge {
+      transform: scale(1);
+    }
+  }
+  
+  .style-content {
+    h3 {
+      font-size: 18px;
+      font-weight: 700;
+      color: #0f172a;
+      margin: 0 0 $spacing-xs 0;
+      
+      @media (prefers-color-scheme: dark) {
+        color: #ffffff;
+      }
+    }
+    
+    p {
+      font-size: 14px;
+      color: #64748b;
+      margin: 0;
+      
+      @media (prefers-color-scheme: dark) {
+        color: #94a3b8;
+      }
+    }
+  }
+}
+
+// Button Group
+.button-group {
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 12px;
+  padding: 0 $spacing-md;
+  
+  @media (min-width: 640px) {
+    flex-direction: row;
+  }
+}
+
+.back-button,
+.continue-button {
+  width: 100%;
+  
+  @media (min-width: 640px) {
+    width: auto;
+    min-width: 120px;
+  }
+}

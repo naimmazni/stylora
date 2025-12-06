@@ -1,0 +1,21 @@
+  {
+  "name": "stylora",
+  "version": "1.0.0",
+  "description": "AI-Powered Fashion Styling Platform with Gamification",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "keywords": [
+    "fashion",
+    "ai",
+    "styling",
+    "nextjs",
+    "typescript",
+    "gamification"
+  ],
+  "author": "",
+  "license": "MIT"
+}

@@ -1,0 +1,53 @@
+@import '@/styles/variables';
+@import '@/styles/mixins';
+
+.card {
+  @include card;
+  
+  &.hover {
+    cursor: pointer;
+    transition: all $transition-base;
+    
+    &:hover {
+      transform: translateY(-4px);
+      box-shadow: $shadow-xl;
+    }
+  }
+  
+  &.glass {
+    @include glass;
+  }
+  
+  &.gradient {
+    @include gradient-bg;
+    color: $white;
+  }
+  
+  &.no-padding {
+    padding: 0;
+  }
+}
+
+.card-header {
+  margin-bottom: $spacing-lg;
+  
+  h3 {
+    margin-bottom: $spacing-xs;
+  }
+  
+  p {
+    color: $gray-600;
+    font-size: $font-size-sm;
+  }
+}
+
+.card-content {
+  // Content styles
+}
+
+.card-footer {
+  margin-top: $spacing-lg;
+  padding-top: $spacing-lg;
+  border-top: 1px solid $gray-200;
+  @include flex-between;
+}
