@@ -6,6 +6,8 @@
   --primary: #ee2bee;
   --background-light: #f8f6f8;
   --background-dark: #181118;
+  --text-primary: #000000;
+  --text-secondary: #6b7280;
 }
 
 @theme inline {
@@ -19,12 +21,16 @@
   :root {
     --background: #181118;
     --foreground: #ededed;
+    --text-primary: #ffffff;
+    --text-secondary: #b99db9;
   }
 }
 
 .dark {
   --background: #181118;
   --foreground: #ededed;
+  --text-primary: #ffffff;
+  --text-secondary: #b99db9;
 }
 
 body {

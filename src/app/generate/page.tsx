@@ -54,6 +54,10 @@ export default function GeneratePage() {
 
       const data = await response.json();
       setOutfit(data.outfit);
+      
+      // Save outfit to localStorage and redirect to result page
+      localStorage.setItem('currentOutfit', JSON.stringify(data.outfit));
+      router.push('/result');
     } catch (err) {
       setError('Failed to generate outfit. Please try again.');
       console.error(err);
