@@ -16,15 +16,15 @@
   max-width: 1024px;
   display: flex;
   flex-direction: column;
-  gap: $spacing-2xl;
-  padding: $spacing-2xl 0;
+  gap: 3rem;
+  padding: 3rem 0;
 }
 
 // Progress Section
 .progress-section {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 1rem;
   padding: 0 $spacing-md;
 }
 
@@ -69,7 +69,7 @@
 .page-heading {
   display: flex;
   flex-direction: column;
-  gap: $spacing-sm;
+  gap: 1rem;
   padding: 0 $spacing-md;
   
   h1 {
@@ -93,14 +93,23 @@
 // Form Content
 .form-content {
   padding: 0 $spacing-md;
+  
+  h2 {
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: -0.025em;
+    color: $brand-dark;
+    font-family: 'Playfair Display', serif;
+    margin: 0 0 2rem 0;
+  }
 }
 
 // Skin Tone Selection
 .skin-tone-options {
   display: flex;
   justify-content: space-around;
-  gap: $spacing-lg;
-  margin-bottom: $spacing-xl;
+  gap: 2rem;
+  margin-bottom: 2.5rem;
   flex-wrap: wrap;
 }
 
@@ -158,8 +167,8 @@
 }
 
 .upload-section {
-  margin-top: $spacing-xl;
-  padding: $spacing-xl;
+  margin-top: 2.5rem;
+  padding: 2.5rem;
   border: 2px dashed $brand-green;
   background: $white;
   border-radius: 12px;
@@ -187,7 +196,7 @@
 .image-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(158px, 1fr));
-  gap: $spacing-md;
+  gap: 1.5rem;
 }
 
 .image-card {
@@ -202,7 +211,7 @@
   }
   
   &.selected .card-overlay {
-    box-shadow: inset 0 0 0 4px #ee2bee;
+    box-shadow: inset 0 0 0 4px $brand-green;
   }
   
   &.selected .check-badge {
@@ -226,8 +235,8 @@
   width: 24px;
   height: 24px;
   border-radius: 50%;
-  background: #ee2bee;
-  color: white;
+  background: $brand-green;
+  color: $brand-cream;
   @include flex-center;
   transform: scale(0);
   transition: transform 0.2s ease;
@@ -244,12 +253,13 @@
   border-radius: 12px;
   
   .card-label {
-    color: white;
+    color: $brand-dark;
     font-size: 16px;
     font-weight: 700;
     line-height: 1.2;
     z-index: 10;
     margin: 0;
+    text-shadow: 0 1px 3px rgba(255, 255, 255, 0.8);
   }
 }
 
@@ -257,7 +267,7 @@
 .style-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: $spacing-md;
+  gap: 1.5rem;
 }
 
 .style-card {
@@ -275,14 +285,14 @@
   }
   
   &:hover {
-    border-color: #ee2bee;
+    border-color: $brand-green;
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(238, 43, 238, 0.1);
+    box-shadow: 0 4px 12px rgba(26, 58, 50, 0.15);
   }
   
   &.selected {
-    border-color: #ee2bee;
-    background: rgba(238, 43, 238, 0.05);
+    border-color: $brand-green;
+    background: rgba(26, 58, 50, 0.05);
     
     .check-badge {
       transform: scale(1);
@@ -319,7 +329,7 @@
   flex-direction: column-reverse;
   align-items: center;
   justify-content: flex-end;
-  gap: 12px;
+  gap: 1rem;
   padding: 0 $spacing-md;
   
   @media (min-width: 640px) {

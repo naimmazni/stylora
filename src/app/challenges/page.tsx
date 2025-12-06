@@ -4,6 +4,8 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useRouter } from 'next/navigation';
 import { Zap, Trophy, Star, Clock, CheckCircle, ArrowLeft } from 'lucide-react';
+import Navbar from '@/components/Navbar';
+import Footer from '@/components/Footer';
 import Button from '@/components/ui/Button';
 import { Card, CardHeader, CardContent } from '@/components/ui/Card';
 import { Badge } from '@/components/ui/Badge';
@@ -89,6 +91,7 @@ export default function ChallengesPage() {
 
   return (
     <div className={styles.challenges}>
+      <Navbar />
       <div className={styles.container}>
         <div className={styles.header}>
           <Button
@@ -214,6 +217,8 @@ export default function ChallengesPage() {
           )}
         </motion.div>
       </div>
+
+      <Footer />
     </div>
   );
 }

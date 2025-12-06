@@ -1,66 +1,20 @@
 'use client';
 
-import React, { useState } from 'react';
+import React from 'react';
 import { useRouter } from 'next/navigation';
-import { Sparkles, Users, Trophy, Upload, Lightbulb, Menu, X } from 'lucide-react';
+import { Sparkles, Users, Trophy, Upload, Lightbulb } from 'lucide-react';
+import Navbar from '@/components/Navbar';
+import Footer from '@/components/Footer';
 import styles from './page.module.scss';
 
 export default function LandingPage() {
   const router = useRouter();
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
     <div className={styles.landing}>
-      <div className={styles.container}>
-        {/* Navigation */}
-        <header className={styles.header}>
-          <div className={styles.headerContent}>
-            <div className={styles.logo}>
-              <svg className={styles.logoIcon} fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
-                <path d="M44 4H30.6666V17.3334H17.3334V30.6666H4V44H44V4Z" fill="currentColor"></path>
-              </svg>
-              <h2 className={styles.logoText}>Stylora</h2>
-            </div>
-            
-            <nav className={styles.desktopNav}>
-              <a href="#features" className={styles.navLink}>Features</a>
-              <a href="#community" className={styles.navLink}>Community</a>
-              <a href="#how-it-works" className={styles.navLink}>How it Works</a>
-              <a href="/tips" className={styles.navLink}>Tips</a>
-              <div className={styles.navButtons}>
-                <button className={styles.loginButton} onClick={() => router.push('/dashboard')}>
-                  Log In
-                </button>
-                <button className={styles.signupButton} onClick={() => router.push('/onboarding')}>
-                  Sign Up Free
-                </button>
-              </div>
-            </nav>
+      <Navbar showAuthButtons={true} />
 
-            <button className={styles.mobileMenuButton} onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
-              {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-            </button>
-            {/* Mobile Navigation */}
-            {mobileMenuOpen && (
-              <nav className={styles.mobileNav}>
-                <a href="#features" className={styles.navLink} onClick={() => setMobileMenuOpen(false)}>Features</a>
-                <a href="#community" className={styles.navLink} onClick={() => setMobileMenuOpen(false)}>Community</a>
-                <a href="#how-it-works" className={styles.navLink} onClick={() => setMobileMenuOpen(false)}>How it Works</a>
-                <a href="/tips" className={styles.navLink} onClick={() => setMobileMenuOpen(false)}>Tips</a>
-                <div className={styles.navButtons}>
-                  <button className={styles.loginButton} onClick={() => { setMobileMenuOpen(false); router.push('/dashboard'); }}>
-                    Log In
-                  </button>
-                  <button className={styles.signupButton} onClick={() => { setMobileMenuOpen(false); router.push('/onboarding'); }}>
-                    Sign Up Free
-                  </button>
-                </div>
-              </nav>
-            )}
-          </div>
-        </header>
-
-        <main className={styles.main}>
+      <main className={styles.main}>
           {/* Hero Section */}
           <section className={styles.hero}>
             <div className={styles.heroContent}>
@@ -204,27 +158,7 @@ export default function LandingPage() {
           </section>
         </main>
 
-        {/* Footer */}
-        <footer className={styles.footer}>
-          <div className={styles.footerContent}>
-            <div className={styles.footerLogo}>
-              <svg className={styles.logoIcon} fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
-                <path d="M44 4H30.6666V17.3334H17.3334V30.6666H4V44H44V4Z" fill="currentColor"></path>
-              </svg>
-              <h2 className={styles.logoText}>Stylora</h2>
-            </div>
-            <div className={styles.footerLinks}>
-              <a href="#" className={styles.footerLink}>About</a>
-              <a href="#" className={styles.footerLink}>Privacy Policy</a>
-              <a href="#" className={styles.footerLink}>Terms of Service</a>
-              <a href="#" className={styles.footerLink}>Contact</a>
-            </div>
-            <div className={styles.copyright}>
-              © 2024 Stylora. All rights reserved.
-            </div>
-          </div>
-        </footer>
-      </div>
+        <Footer />
     </div>
   );
 }

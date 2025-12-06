@@ -201,19 +201,14 @@ $brand-footer-bg: #333333;
 .main {
   display: flex;
   flex-direction: column;
-  gap: 4rem;
-
-  @media (min-width: 768px) {
-    gap: 6rem;
-  }
 }
 
 // Hero Section
 .hero {
-  margin-top: 0;
-  padding: 1rem;
-  border-radius: 0;
-  min-height: 60vh;
+  width: 100%;
+  margin: 0;
+  padding: 4rem 1.5rem;
+  min-height: 70vh;
   background-image: linear-gradient(rgba(26, 58, 50, 0.85) 0%, rgba(26, 58, 50, 0.75) 100%),
     url("https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=1200&auto=format&fit=crop");
   background-size: cover;
@@ -224,9 +219,9 @@ $brand-footer-bg: #333333;
   justify-content: center;
   text-align: center;
 
-  @media (min-width: 480px) {
-    min-height: 480px;
-    padding: 2.5rem;
+  @media (min-width: 768px) {
+    padding: 6rem 2rem;
+    min-height: 80vh;
   }
 }
 
@@ -289,7 +284,13 @@ $brand-footer-bg: #333333;
 
 // Features Section
 .features {
-  padding: 2.5rem 1rem;
+  width: 100%;
+  padding: 5rem 1.5rem;
+  background: $brand-cream;
+
+  @media (min-width: 768px) {
+    padding: 6rem 2rem;
+  }
 }
 
 .featuresHeader {
@@ -298,7 +299,8 @@ $brand-footer-bg: #333333;
   align-items: center;
   text-align: center;
   gap: 1rem;
-  margin-bottom: 2.5rem;
+  margin: 0 auto 3rem;
+  max-width: 1280px;
 }
 
 .sectionTitle {
@@ -326,8 +328,14 @@ $brand-footer-bg: #333333;
 
 .featureGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  max-width: 1280px;
+  margin: 0 auto;
+
+  @media (min-width: 1024px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 
 .featureCard {
@@ -371,13 +379,17 @@ $brand-footer-bg: #333333;
 
 // How It Works Section
 .howItWorks {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-  padding: 0 1rem;
+  width: 100%;
+  padding: 5rem 1.5rem;
+  background: lighten($brand-cream, 2%);
+
+  @media (min-width: 768px) {
+    padding: 6rem 2rem;
+  }
 
   .sectionTitle {
     text-align: center;
+    margin: 0 auto 3rem;
   }
 }
 
@@ -386,6 +398,8 @@ $brand-footer-bg: #333333;
   grid-template-columns: 40px 1fr;
   gap: 0 1rem;
   padding: 0;
+  max-width: 800px;
+  margin: 0 auto;
 }
 
 .step {
@@ -430,12 +444,18 @@ $brand-footer-bg: #333333;
 
 // Testimonial Section
 .testimonial {
+  width: 100%;
+  padding: 5rem 1.5rem;
+  background: $brand-cream;
   display: flex;
   flex-direction: column;
   gap: 2rem;
   align-items: center;
   text-align: center;
-  padding: 0 1rem;
+
+  @media (min-width: 768px) {
+    padding: 6rem 2rem;
+  }
 }
 
 .testimonialCard {
@@ -511,18 +531,17 @@ $brand-footer-bg: #333333;
 }
 // Final CTA Section
 .finalCta {
+  width: 100%;
   background: $brand-green;
-  border-radius: 0.75rem;
-  padding: 2.5rem;
+  padding: 5rem 1.5rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
   gap: 1.5rem;
-  margin: 2.5rem 0;
 
   @media (min-width: 768px) {
-    padding: 4rem;
+    padding: 6rem 2rem;
   }
 }
 
@@ -550,54 +569,4 @@ $brand-footer-bg: #333333;
   @media (min-width: 768px) {
     font-size: 1.125rem;
   }
-}
-
-// Footer
-.footer {
-  border-top: 2px solid $brand-green;
-  margin-top: 2.5rem;
-  padding: 2.5rem 0;
-  background: $brand-footer-bg;
-}
-
-.footerContent {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 2rem;
-
-  @media (min-width: 768px) {
-    flex-direction: row;
-    justify-content: space-between;
-  }
-}
-
-.footerLogo {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  color: $brand-cream;
-}
-
-.footerLinks {
-  display: flex;
-  gap: 1.5rem;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-.footerLink {
-  color: #ccc;
-  font-size: 0.875rem;
-  text-decoration: none;
-  transition: color 0.2s;
-
-  &:hover {
-    color: #fff;
-  }
-}
-
-.copyright {
-  color: #999;
-  font-size: 0.875rem;
 }

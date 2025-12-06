@@ -1,0 +1,285 @@
+@use '@/styles/variables' as *;
+@use '@/styles/mixins' as *;
+
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: $brand-cream;
+  border-bottom: 2px solid $brand-green;
+  padding: 1rem 0;
+  font-family: 'Source Sans 3', sans-serif;
+}
+
+.navbarContent {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+// Logo
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  text-decoration: none;
+  color: $brand-green;
+  transition: opacity 0.2s;
+
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+.logoIcon {
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
+}
+
+.logoText {
+  font-size: 1.5rem;
+  font-weight: 700;
+  font-family: 'Playfair Display', serif;
+  color: $brand-green;
+  margin: 0;
+}
+
+// Desktop Navigation
+.desktopNav {
+  display: none;
+  align-items: center;
+  gap: 2rem;
+  flex: 1;
+  justify-content: center;
+
+  @media (min-width: 768px) {
+    display: flex;
+  }
+}
+
+.navLink {
+  font-size: 1rem;
+  font-weight: 500;
+  color: $brand-dark;
+  text-decoration: none;
+  transition: color 0.2s;
+  position: relative;
+
+  &:hover {
+    color: $brand-green;
+  }
+
+  &.active {
+    color: $brand-green;
+    font-weight: 600;
+    
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -0.5rem;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: $brand-green;
+    }
+  }
+}
+
+// Actions
+.navActions {
+  display: none;
+  align-items: center;
+  gap: 1rem;
+
+  @media (min-width: 768px) {
+    display: flex;
+  }
+}
+
+.authButtons {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.loginButton {
+  padding: 0.625rem 1.25rem;
+  background: transparent;
+  color: $brand-green;
+  border: 2px solid $brand-green;
+  border-radius: 0.5rem;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-family: 'Source Sans 3', sans-serif;
+
+  &:hover {
+    background: $brand-green;
+    color: $brand-cream;
+  }
+}
+
+.signupButton {
+  padding: 0.625rem 1.25rem;
+  background: $brand-green;
+  color: $brand-cream;
+  border: 2px solid $brand-green;
+  border-radius: 0.5rem;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-family: 'Source Sans 3', sans-serif;
+
+  &:hover {
+    background: darken($brand-green, 5%);
+    border-color: darken($brand-green, 5%);
+  }
+}
+
+.actionButton {
+  padding: 0.625rem 1.25rem;
+  background: $brand-green;
+  color: $brand-cream;
+  border: 2px solid $brand-green;
+  border-radius: 0.5rem;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-family: 'Source Sans 3', sans-serif;
+
+  &:hover {
+    background: darken($brand-green, 5%);
+    border-color: darken($brand-green, 5%);
+  }
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: $brand-green;
+  border: 2px solid $brand-green;
+  cursor: pointer;
+  transition: transform 0.2s;
+
+  &:hover {
+    transform: scale(1.05);
+  }
+}
+
+// Mobile Menu Button
+.mobileMenuButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  color: $brand-green;
+  cursor: pointer;
+  padding: 0.5rem;
+  transition: opacity 0.2s;
+
+  &:hover {
+    opacity: 0.7;
+  }
+
+  @media (min-width: 768px) {
+    display: none;
+  }
+}
+
+// Mobile Navigation
+.mobileNav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1rem 1.5rem;
+  background: $brand-cream;
+  border-top: 1px solid $brand-green;
+  animation: slideDown 0.3s ease-out;
+
+  @media (min-width: 768px) {
+    display: none;
+  }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.mobileNavLink {
+  padding: 0.75rem 1rem;
+  color: $brand-dark;
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 500;
+  border-radius: 0.5rem;
+  transition: all 0.2s;
+
+  &:hover {
+    background: rgba(26, 58, 50, 0.05);
+    color: $brand-green;
+  }
+
+  &.active {
+    background: rgba(26, 58, 50, 0.1);
+    color: $brand-green;
+    font-weight: 600;
+  }
+}
+
+.mobileAuthButtons {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(26, 58, 50, 0.1);
+
+  .loginButton,
+  .signupButton {
+    width: 100%;
+  }
+}
+
+.mobileActionButton {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  background: $brand-green;
+  color: $brand-cream;
+  border: 2px solid $brand-green;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-family: 'Source Sans 3', sans-serif;
+  margin-top: 0.5rem;
+
+  &:hover {
+    background: darken($brand-green, 5%);
+    border-color: darken($brand-green, 5%);
+  }
+}
+
+// Minimal variant
+.navbar.minimal {
+  .navbarContent {
+    padding: 0.5rem 1.5rem;
+  }
+}

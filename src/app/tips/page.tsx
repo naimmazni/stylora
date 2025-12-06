@@ -1,17 +1,12 @@
 import Link from 'next/link';
+import Navbar from '@/components/Navbar';
+import Footer from '@/components/Footer';
 import styles from './page.module.scss';
 
 export default function TipsPage() {
   return (
     <div className={styles.tipsPage}>
-      <nav className={styles.topNav}>
-        <div className={styles.topNavContainer}>
-          <Link href="/" className={styles.topNavLink}>Home</Link>
-          <Link href="/dashboard" className={styles.topNavLink}>Dashboard</Link>
-          <Link href="/generate" className={styles.topNavLink}>Generate</Link>
-          <Link href="/tips" className={styles.topNavLinkActive}>Tips</Link>
-        </div>
-      </nav>
+      <Navbar />
       <div className={styles.pageContainer}>
         <div className={styles.mainWrapper}>
           <aside className={styles.sidebar}>
@@ -106,6 +101,8 @@ export default function TipsPage() {
           </div>
         </footer>
       </div>
+
+      <Footer />
     </div>
   );
 }

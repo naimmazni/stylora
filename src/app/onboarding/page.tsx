@@ -110,7 +110,7 @@ export default function OnboardingPage() {
           <div 
             ref={sectionRefs.skinTone}
             style={{ 
-              marginBottom: 80, 
+              marginBottom: 120, 
               opacity: currentStep === 1 ? 1 : 0.4,
               transform: currentStep === 1 ? 'scale(1)' : 'scale(0.95)',
               transition: 'all 0.3s ease',
@@ -154,13 +154,13 @@ export default function OnboardingPage() {
                           Upload Photo
                         </Button>
                         {uploadedPhoto && (
-                          <div style={{ marginTop: 12 }}>
+                          <div style={{ marginTop: 20 }}>
                             <img
                               src={URL.createObjectURL(uploadedPhoto)}
                               alt="Uploaded preview"
                               style={{ maxWidth: 120, maxHeight: 120, borderRadius: 8, margin: '0 auto' }}
                             />
-                            <div style={{ fontSize: 12, color: '#64748b', marginTop: 4 }}>{uploadedPhoto.name}</div>
+                            <div style={{ fontSize: 12, color: '#64748b', marginTop: 8 }}>{uploadedPhoto.name}</div>
                           </div>
                         )}
                       </div>
@@ -170,7 +170,7 @@ export default function OnboardingPage() {
                     <div 
                       ref={sectionRefs.gender}
                       style={{ 
-                        marginBottom: 80, 
+                        marginBottom: 120, 
                         opacity: currentStep === 2 ? 1 : isStepComplete(1) ? 0.4 : 0.2,
                         transform: currentStep === 2 ? 'scale(1)' : 'scale(0.95)',
                         transition: 'all 0.3s ease',
@@ -179,7 +179,7 @@ export default function OnboardingPage() {
                       onClick={() => currentStep > 2 && setCurrentStep(2)}
                     >
                       <h2>{steps.find(s => s.id === 'gender')?.num}. Select your gender</h2>
-                      <div style={{ display: 'flex', gap: 24 }}>
+                      <div style={{ display: 'flex', gap: 32 }}>
                         {['male', 'female', 'other'].map((gender) => (
                           <Button
                             key={gender}
@@ -197,7 +197,7 @@ export default function OnboardingPage() {
                       <div 
                         ref={sectionRefs.hijabi}
                         style={{ 
-                          marginBottom: 80, 
+                          marginBottom: 120, 
                           opacity: currentStep === 3 ? 1 : isStepComplete(2) ? 0.4 : 0.2,
                           transform: currentStep === 3 ? 'scale(1)' : 'scale(0.95)',
                           transition: 'all 0.3s ease',
@@ -206,7 +206,7 @@ export default function OnboardingPage() {
                         onClick={() => currentStep > 3 && setCurrentStep(3)}
                       >
                         <h2>{steps.find(s => s.id === 'hijabi')?.num}. Are you a hijabi?</h2>
-                        <div style={{ display: 'flex', gap: 24 }}>
+                        <div style={{ display: 'flex', gap: 32 }}>
                           <Button
                             variant={onboardingData.hijabi === true ? 'primary' : 'outline'}
                             onClick={() => setOnboardingData({ ...onboardingData, hijabi: true })}
@@ -227,7 +227,7 @@ export default function OnboardingPage() {
                     <div 
                       ref={sectionRefs.eventType}
                       style={{ 
-                        marginBottom: 80, 
+                        marginBottom: 120, 
                         opacity: currentStep === 4 ? 1 : (isStepComplete(2) && (onboardingData.gender !== 'female' || isStepComplete(3))) ? 0.4 : 0.2,
                         transform: currentStep === 4 ? 'scale(1)' : 'scale(0.95)',
                         transition: 'all 0.3s ease',
@@ -264,7 +264,7 @@ export default function OnboardingPage() {
                     <div 
                       ref={sectionRefs.stylePreferences}
                       style={{ 
-                        marginBottom: 80, 
+                        marginBottom: 120, 
                         opacity: currentStep === 5 ? 1 : isStepComplete(4) ? 0.4 : 0.2,
                         transform: currentStep === 5 ? 'scale(1)' : 'scale(0.95)',
                         transition: 'all 0.3s ease',
@@ -308,8 +308,8 @@ export default function OnboardingPage() {
                     {isStepComplete(5) && (
                       <div style={{ 
                         textAlign: 'center', 
-                        marginTop: 40, 
-                        marginBottom: 60,
+                        marginTop: 60, 
+                        marginBottom: 80,
                         animation: 'fadeIn 0.5s ease-in'
                       }}>
                         <Button 

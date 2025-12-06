@@ -4,6 +4,8 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { useRouter } from 'next/navigation';
 import { Trophy, Zap, Shirt, Star, Award, TrendingUp } from 'lucide-react';
+import Navbar from '@/components/Navbar';
+import Footer from '@/components/Footer';
 import Button from '@/components/ui/Button';
 import { Card, CardHeader, CardContent } from '@/components/ui/Card';
 import ProgressBar from '@/components/ui/ProgressBar';
@@ -50,6 +52,7 @@ export default function DashboardPage() {
 
   return (
     <div className={styles.dashboard}>
+      <Navbar />
       <div className={styles.container}>
         <div className={styles.header}>
           <div>
@@ -224,6 +227,8 @@ export default function DashboardPage() {
           </div>
         </div>
       </div>
+
+      <Footer />
     </div>
   );
 }

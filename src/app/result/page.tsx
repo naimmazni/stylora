@@ -3,6 +3,8 @@
 import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { Heart, Share2, Lightbulb } from 'lucide-react';
+import Navbar from '@/components/Navbar';
+import Footer from '@/components/Footer';
 import { OutfitRecommendation, OnboardingData } from '@/types';
 import styles from './page.module.scss';
 
@@ -127,27 +129,12 @@ export default function ResultPage() {
 
   return (
     <div className={styles.container}>
-      {/* Header */}
-      <header className={styles.header}>
-        <div className={styles.logo}>
-          <svg width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M44 4H30.6666V17.3334H17.3334V30.6666H4V44H44V4Z" fill="currentColor"/>
-          </svg>
-          <h2>Stylora</h2>
-        </div>
-        <div className={styles.nav}>
-          <a href="/">Home</a>
-          <a href="/dashboard">My Wardrobe</a>
-          <a href="#">Inspiration</a>
-          <a href="#">Community</a>
-        </div>
-        <div className={styles.headerActions}>
-          <button className={styles.generateBtn} onClick={handleGenerateNew}>
-            Generate New Outfit
-          </button>
-          <div className={styles.avatar}></div>
-        </div>
-      </header>
+      <Navbar 
+        actionButton={{
+          label: 'Generate New Outfit',
+          onClick: handleGenerateNew
+        }}
+      />
 
       <main className={styles.main}>
         {/* Title */}
@@ -257,6 +244,8 @@ export default function ResultPage() {
           <a href="#" className={styles.whyAsking}>Why are we asking?</a>
         </div>
       </main>
+
+      <Footer />
     </div>
   );
 }

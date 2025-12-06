@@ -4,6 +4,8 @@ import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { useRouter } from 'next/navigation';
 import { Sparkles, ShoppingBag, Heart, Share2, ArrowLeft } from 'lucide-react';
+import Navbar from '@/components/Navbar';
+import Footer from '@/components/Footer';
 import Button from '@/components/ui/Button';
 import { Card, CardHeader, CardContent } from '@/components/ui/Card';
 import { LoadingSpinner } from '@/components/ui/Badge';
@@ -94,6 +96,7 @@ export default function GeneratePage() {
 
   return (
     <div className={styles.results}>
+      <Navbar />
       <div className={styles.container}>
         <div className={styles.header}>
           <Button
@@ -222,6 +225,8 @@ export default function GeneratePage() {
           </div>
         </motion.div>
       </div>
+
+      <Footer />
     </div>
   );
 }
