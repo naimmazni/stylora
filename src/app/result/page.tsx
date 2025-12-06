@@ -150,15 +150,6 @@ export default function ResultPage() {
       </header>
 
       <main className={styles.main}>
-        {/* Breadcrumb */}
-        <div className={styles.breadcrumb}>
-          <a href="/">Home</a>
-          <span>/</span>
-          <a href="/result">Generator</a>
-          <span>/</span>
-          <span>Your Outfit</span>
-        </div>
-
         {/* Title */}
         <div className={styles.titleSection}>
           <h1>Here's Your Stylora Look: {outfitTitle}</h1>

@@ -1,5 +1,5 @@
-@import '@/styles/variables';
-@import '@/styles/mixins';
+@use '@/styles/variables' as *;
+@use '@/styles/mixins' as *;
 
 .card {
   @include card;
@@ -33,10 +33,13 @@
   
   h3 {
     margin-bottom: $spacing-xs;
+    font-family: 'Playfair Display', serif;
+    color: $brand-dark;
   }
   
   p {
-    color: $gray-600;
+    color: $brand-dark;
+    opacity: 0.8;
     font-size: $font-size-sm;
   }
 }
@@ -48,6 +51,6 @@
 .card-footer {
   margin-top: $spacing-lg;
   padding-top: $spacing-lg;
-  border-top: 1px solid $gray-200;
+  border-top: 2px solid lighten($brand-green, 50%);
   @include flex-between;
 }

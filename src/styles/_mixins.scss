@@ -1,3 +1,5 @@
+@use '@/styles/variables' as *;
+
 // Breakpoint Mixins
 @mixin sm {
   @media (min-width: $breakpoint-sm) {
@@ -73,12 +75,15 @@
 
 @mixin button-primary {
   @include button-base;
-  background: linear-gradient(135deg, $primary 0%, $primary-dark 100%);
-  color: $white;
+  background: $brand-green;
+  color: $brand-cream;
+  border: 2px solid $brand-green;
+  font-weight: $font-weight-bold;
   
   &:hover:not(:disabled) {
     transform: translateY(-2px);
-    box-shadow: $shadow-lg;
+    box-shadow: 0 4px 12px rgba(26, 58, 50, 0.25);
+    background: darken($brand-green, 5%);
   }
   
   &:active:not(:disabled) {
@@ -89,31 +94,33 @@
 @mixin button-secondary {
   @include button-base;
   background: $white;
-  color: $primary;
-  border: 2px solid $primary;
+  color: $brand-green;
+  border: 2px solid $brand-green;
+  font-weight: $font-weight-bold;
   
   &:hover:not(:disabled) {
-    background: $primary;
-    color: $white;
+    background: $brand-green;
+    color: $brand-cream;
   }
 }
 
 // Card Mixin
 @mixin card {
   background: $white;
-  border-radius: $radius-xl;
+  border: 2px solid $brand-green;
+  border-radius: $radius-lg;
   padding: $spacing-xl;
-  box-shadow: $shadow-md;
+  box-shadow: 0 2px 8px rgba(26, 58, 50, 0.08);
   transition: all $transition-base;
   
   &:hover {
-    box-shadow: $shadow-lg;
+    box-shadow: 0 4px 12px rgba(26, 58, 50, 0.15);
   }
 }
 
 // Gradient Background
 @mixin gradient-bg {
-  background: linear-gradient(135deg, $primary 0%, $secondary 100%);
+  background: linear-gradient(135deg, $brand-green 0%, darken($brand-green, 15%) 100%);
 }
 
 // Text Truncate
@@ -195,7 +202,7 @@
 
 // Text Gradient
 @mixin text-gradient {
-  background: linear-gradient(135deg, $primary 0%, $secondary 100%);
+  background: linear-gradient(135deg, $brand-green 0%, darken($brand-green, 15%) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;

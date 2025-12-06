@@ -1,10 +1,12 @@
-@import '@/styles/variables';
-@import '@/styles/mixins';
+@use '@/styles/variables' as *;
+@use '@/styles/mixins' as *;
 
 .results {
   min-height: 100vh;
-  background: $gray-50;
+  background: $brand-cream;
   padding: $spacing-xl;
+  font-family: 'Source Sans 3', sans-serif;
+  color: $brand-dark;
 }
 
 .container {
@@ -25,7 +27,9 @@
 .title {
   text-align: center;
   margin-bottom: $spacing-2xl;
-  @include text-gradient;
+  font-family: 'Playfair Display', serif;
+  color: $brand-dark;
+  font-size: $font-size-4xl;
 }
 
 .content {
@@ -100,7 +104,7 @@
   .item-category {
     text-transform: uppercase;
     font-size: $font-size-xs;
-    color: $primary;
+    color: $brand-green;
     font-weight: $font-weight-bold;
     letter-spacing: 1px;
     margin-bottom: $spacing-xs;
@@ -109,11 +113,13 @@
   .item-name {
     font-size: $font-size-xl;
     margin-bottom: $spacing-sm;
-    color: $gray-900;
+    color: $brand-dark;
+    font-family: 'Playfair Display', serif;
   }
   
   .item-description {
-    color: $gray-600;
+    color: $brand-dark;
+    opacity: 0.8;
     font-size: $font-size-sm;
     margin-bottom: $spacing-md;
   }
@@ -121,7 +127,7 @@
   .item-price {
     font-size: $font-size-lg;
     font-weight: $font-weight-bold;
-    color: $primary;
+    color: $brand-green;
     margin-bottom: $spacing-md;
   }
 }
@@ -134,9 +140,9 @@
     li {
       padding: $spacing-md;
       margin-bottom: $spacing-sm;
-      background: $gray-50;
+      background: $white;
       border-radius: $radius-lg;
-      border-left: 4px solid $primary;
+      border-left: 4px solid $brand-green;
       
       &::before {
         content: '💡';

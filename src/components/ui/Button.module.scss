@@ -1,5 +1,5 @@
-@import '@/styles/variables';
-@import '@/styles/mixins';
+@use '@/styles/variables' as *;
+@use '@/styles/mixins' as *;
 
 .button {
   @include button-base;
@@ -14,20 +14,21 @@
   
   &.outline {
     background: transparent;
-    color: $primary;
-    border: 2px solid $primary;
+    color: $brand-green;
+    border: 2px solid $brand-green;
     
     &:hover:not(:disabled) {
-      background: rgba($primary, 0.1);
+      background: $brand-green;
+      color: $brand-cream;
     }
   }
   
   &.ghost {
     background: transparent;
-    color: $gray-700;
+    color: $brand-dark;
     
     &:hover:not(:disabled) {
-      background: $gray-100;
+      background: lighten($brand-green, 55%);
     }
   }
   

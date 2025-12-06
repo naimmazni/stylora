@@ -1,5 +1,5 @@
-@import '@/styles/variables';
-@import '@/styles/mixins';
+@use '@/styles/variables' as *;
+@use '@/styles/mixins' as *;
 
 .badge {
   display: inline-flex;
@@ -11,13 +11,15 @@
   font-weight: $font-weight-medium;
   
   &.primary {
-    background: rgba($primary, 0.1);
-    color: $primary;
+    background: rgba($brand-green, 0.15);
+    color: $brand-green;
+    border: 1px solid $brand-green;
   }
   
   &.secondary {
-    background: rgba($secondary, 0.1);
-    color: $secondary;
+    background: $brand-cream-active;
+    color: $brand-dark;
+    border: 1px solid darken($brand-cream-active, 10%);
   }
   
   &.success {
@@ -36,8 +38,9 @@
   }
   
   &.gray {
-    background: $gray-200;
-    color: $gray-700;
+    background: lighten($brand-green, 55%);
+    color: $brand-dark;
+    border: 1px solid $brand-green;
   }
 }
 

@@ -1,16 +1,14 @@
-@import '@/styles/variables';
-@import '@/styles/mixins';
+@use '@/styles/variables' as *;
+@use '@/styles/mixins' as *;
 
 .onboarding {
   min-height: 100vh;
-  background: $gray-50;
+  background: $brand-cream;
   padding: $spacing-md;
   @include flex-center;
   flex-direction: column;
-  
-  @media (prefers-color-scheme: dark) {
-    background: #221022;
-  }
+  font-family: 'Source Sans 3', sans-serif;
+  color: $brand-dark;
 }
 
 .container {
@@ -38,12 +36,9 @@
   .step-text {
     font-size: 14px;
     font-weight: 500;
-    color: #475569;
+    color: $brand-dark;
+    opacity: 0.7;
     margin: 0;
-    
-    @media (prefers-color-scheme: dark) {
-      color: #cbd5e1;
-    }
   }
 }
 
@@ -51,30 +46,23 @@
   height: 8px;
   width: 100%;
   border-radius: 9999px;
-  background: #e2e8f0;
+  background: lighten($brand-green, 60%);
   overflow: hidden;
-  
-  @media (prefers-color-scheme: dark) {
-    background: #334155;
-  }
 }
 
 .progress-bar {
   height: 100%;
   border-radius: 9999px;
-  background: #ee2bee;
+  background: $brand-green;
   transition: width 0.3s ease;
 }
 
 .progress-label {
   font-size: 12px;
   font-weight: 400;
-  color: #64748b;
+  color: $brand-dark;
+  opacity: 0.6;
   margin: 0;
-  
-  @media (prefers-color-scheme: dark) {
-    color: #94a3b8;
-  }
 }
 
 // Page Heading
@@ -86,25 +74,19 @@
   
   h1 {
     font-size: 36px;
-    font-weight: 800;
+    font-weight: 700;
     letter-spacing: -0.025em;
-    color: #0f172a;
+    color: $brand-dark;
+    font-family: 'Playfair Display', serif;
     margin: 0;
-    
-    @media (prefers-color-scheme: dark) {
-      color: #ffffff;
-    }
   }
   
   p {
     font-size: 16px;
     font-weight: 400;
-    color: #475569;
+    color: $brand-dark;
+    opacity: 0.8;
     margin: 0;
-    
-    @media (prefers-color-scheme: dark) {
-      color: #94a3b8;
-    }
   }
 }
 
@@ -145,18 +127,15 @@
   }
   
   &.selected .tone-circle {
-    border-color: #ee2bee;
-    box-shadow: 0 0 0 4px rgba(238, 43, 238, 0.2);
+    border-color: $brand-green;
+    box-shadow: 0 0 0 4px rgba(26, 58, 50, 0.2);
   }
   
   .tone-label {
     font-size: $font-size-sm;
-    color: #475569;
+    color: $brand-dark;
+    opacity: 0.7;
     font-weight: 500;
-    
-    @media (prefers-color-scheme: dark) {
-      color: #cbd5e1;
-    }
   }
   
   .check-icon {
@@ -166,8 +145,8 @@
     width: 24px;
     height: 24px;
     border-radius: 50%;
-    background: #ee2bee;
-    color: white;
+    background: $brand-green;
+    color: $brand-cream;
     @include flex-center;
     transform: scale(0);
     transition: transform 0.2s ease;
@@ -181,28 +160,26 @@
 .upload-section {
   margin-top: $spacing-xl;
   padding: $spacing-xl;
-  border: 2px dashed #cbd5e1;
+  border: 2px dashed $brand-green;
+  background: $white;
   border-radius: 12px;
   text-align: center;
   transition: all $transition-base;
   
   &:hover {
-    border-color: #ee2bee;
-    background: rgba(238, 43, 238, 0.02);
+    border-color: darken($brand-green, 10%);
+    background: lighten($brand-green, 55%);
   }
   
   .upload-icon {
-    color: #94a3b8;
+    color: $brand-green;
     margin-bottom: $spacing-md;
   }
   
   p {
-    color: #64748b;
+    color: $brand-dark;
+    opacity: 0.7;
     margin-bottom: $spacing-md;
-    
-    @media (prefers-color-scheme: dark) {
-      color: #94a3b8;
-    }
   }
 }
 

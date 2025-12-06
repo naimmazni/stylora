@@ -1,10 +1,12 @@
-@import '@/styles/variables';
-@import '@/styles/mixins';
+@use '@/styles/variables' as *;
+@use '@/styles/mixins' as *;
 
 .challenges {
   min-height: 100vh;
-  background: $gray-50;
+  background: $brand-cream;
   padding: $spacing-xl;
+  font-family: 'Source Sans 3', sans-serif;
+  color: $brand-dark;
 }
 
 .container {
@@ -27,11 +29,14 @@
   
   h1 {
     margin-bottom: $spacing-md;
-    @include text-gradient;
+    font-family: 'Playfair Display', serif;
+    color: $brand-dark;
+    font-size: $font-size-4xl;
   }
   
   p {
-    color: $gray-600;
+    color: $brand-dark;
+    opacity: 0.8;
     font-size: $font-size-lg;
   }
 }
@@ -42,7 +47,7 @@
   background: $white;
   padding: $spacing-sm;
   border-radius: $radius-xl;
-  box-shadow: $shadow-md;
+  border: 2px solid $brand-green;
 }
 
 .tab {
@@ -58,15 +63,15 @@
   cursor: pointer;
   transition: all $transition-base;
   font-weight: $font-weight-medium;
-  color: $gray-600;
+  color: $brand-dark;
   
   &:hover {
-    background: $gray-50;
+    background: lighten($brand-green, 55%);
   }
   
   &.active {
-    background: linear-gradient(135deg, $primary 0%, $secondary 100%);
-    color: $white;
+    background: $brand-green;
+    color: $brand-cream;
   }
 }
 
@@ -99,12 +104,14 @@
   
   h3 {
     font-size: $font-size-xl;
-    color: $gray-900;
+    color: $brand-dark;
+    font-family: 'Playfair Display', serif;
   }
 }
 
 .challenge-description {
-  color: $gray-600;
+  color: $brand-dark;
+  opacity: 0.8;
   margin-bottom: $spacing-md;
 }
 
@@ -117,7 +124,8 @@
     display: flex;
     align-items: center;
     gap: $spacing-xs;
-    color: $gray-600;
+    color: $brand-dark;
+    opacity: 0.7;
     font-size: $font-size-sm;
   }
 }
@@ -129,7 +137,8 @@
   
   .progress-label {
     font-size: $font-size-sm;
-    color: $gray-600;
+    color: $brand-dark;
+    opacity: 0.7;
     white-space: nowrap;
   }
 }
@@ -146,7 +155,7 @@
   text-align: center;
   
   .icon {
-    color: $warning;
+    color: $accent;
     margin-bottom: $spacing-xs;
   }
   
