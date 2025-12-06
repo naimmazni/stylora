@@ -39,6 +39,7 @@ export interface OutfitRecommendation {
   items: ClothingItem[];
   colorPalette: ColorPalette;
   styleTips: string[];
+  description?: string;
   occasionMatch: EventType;
   styleMatch: StylePreference;
   createdAt: Date;

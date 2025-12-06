@@ -44,6 +44,7 @@ Style Preferences: ${stylePreferences.join(', ')}
 
 Please provide a detailed outfit recommendation in the following JSON format:
 {
+  "description": "A 1-2 sentence description of the complete outfit and why it works for this person",
   "items": [
     {
       "category": "top" | "bottom" | "footwear" | "accessory",
@@ -68,6 +69,7 @@ Requirements:
 - Provide 3-5 actionable style tips
 - Use specific color names and hex codes
 - Be creative but practical
+- The description should reference the specific event type (${eventType}) and style preferences (${stylePreferences.join(', ')})
 
 Return ONLY the JSON object, no additional text.`;
 
@@ -120,6 +122,7 @@ Return ONLY the JSON object, no additional text.`;
       items: processedItems,
       colorPalette: outfitData.colorPalette,
       styleTips: outfitData.styleTips,
+      description: outfitData.description || `A personalized ${stylePreferences[0]} outfit for ${eventType} occasions`,
       occasionMatch: eventType as EventType,
       styleMatch: stylePreferences[0] as StylePreference,
       createdAt: new Date(),
@@ -161,6 +164,7 @@ Return ONLY the JSON object, no additional text.`;
       items: processedItems,
       colorPalette: mockOutfit.colorPalette,
       styleTips: mockOutfit.styleTips,
+      description: mockOutfit.description || `A personalized ${stylePreferences[0]} outfit for ${eventType} occasions`,
       occasionMatch: eventType as EventType,
       styleMatch: stylePreferences[0] as StylePreference,
       createdAt: new Date(),
@@ -185,8 +189,8 @@ function generateMockOutfit(skinTone: string, eventType: string, style: string):
     wedding: { primary: '#d4af37', secondary: '#ffffff', accent: '#c9a661', neutral: '#e8e8e8' },
     sporty: { primary: '#27ae60', secondary: '#34495e', accent: '#e67e22', neutral: '#95a5a6' },
   };
-
   return {
+    description: `A ${style} outfit perfect for ${eventType} occasions, specially curated for ${skinTone} skin tone`,
     items: [
       {
         category: 'top',

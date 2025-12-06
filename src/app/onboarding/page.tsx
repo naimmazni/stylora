@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useRouter } from 'next/navigation';
 import { Check, ArrowRight, ArrowLeft, Upload } from 'lucide-react';
 import Button from '@/components/Button';
+import LoadingScreen from '@/components/LoadingScreen';
 import { OnboardingData, SkinTone, EventType, StylePreference } from '@/types';
 import { SKIN_TONES, EVENT_TYPES, STYLE_PREFERENCES } from '@/lib/constants';
 import styles from './page.module.scss';
@@ -29,6 +30,8 @@ export default function OnboardingPage() {
   });
   const [uploadedPhoto, setUploadedPhoto] = useState<File | null>(null);
   const [currentStep, setCurrentStep] = useState(1);
+  const [showLoading, setShowLoading] = useState(false);
+  const [loadingComplete, setLoadingComplete] = useState(false);
   const fileInputRef = React.useRef<HTMLInputElement>(null);
   const sectionRefs = {
     skinTone: React.useRef<HTMLDivElement>(null),
@@ -60,7 +63,7 @@ export default function OnboardingPage() {
     }
   }, [onboardingData, currentStep]);
 
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
     if (
       onboardingData.skinTone &&
       onboardingData.gender &&
@@ -69,8 +72,40 @@ export default function OnboardingPage() {
       onboardingData.stylePreferences && onboardingData.stylePreferences.length > 0
     ) {
       localStorage.setItem('onboardingData', JSON.stringify(onboardingData));
-      router.push('/result');
+      setShowLoading(true);
+      setLoadingComplete(false);
+
+      try {
+        // Generate outfit during loading screen
+        const response = await fetch('/api/generate-outfit', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            skinTone: onboardingData.skinTone,
+            eventType: onboardingData.eventType,
+            stylePreferences: onboardingData.stylePreferences,
+          }),
+        });
+
+        if (response.ok) {
+          const data = await response.json();
+          // Save the generated outfit
+          localStorage.setItem('currentOutfit', JSON.stringify(data.outfit));
+        }
+      } catch (err) {
+        console.error('Failed to generate outfit:', err);
+        // Continue to result page anyway - it will regenerate if needed
+      } finally {
+        // Mark loading as complete
+        setLoadingComplete(true);
+      }
     }
+  };
+
+  const handleLoadingComplete = () => {
+    router.push('/result');
   };
 
   const isStepComplete = (step: number) => {
@@ -102,7 +137,8 @@ export default function OnboardingPage() {
   const steps = getStepNumber();
 
   return (
-    <div className={styles.onboarding}>
+    <>
+      <div className={styles.onboarding}>
       <div className={styles.container}>
         {/* Form Content */}
         <div className={styles['form-content']}>
@@ -329,5 +365,14 @@ export default function OnboardingPage() {
                   </div>
                 </div>
               </div>
+
+      {/* Loading Screen Overlay */}
+      {showLoading && (
+        <LoadingScreen
+          isComplete={loadingComplete}
+          onComplete={handleLoadingComplete}
+        />
+      )}
+    </>
   );
 }

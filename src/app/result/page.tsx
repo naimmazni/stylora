@@ -16,6 +16,20 @@ export default function ResultPage() {
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
+    // Check if outfit was already generated during onboarding
+    const currentOutfitStr = localStorage.getItem('currentOutfit');
+    if (currentOutfitStr) {
+      try {
+        const existingOutfit = JSON.parse(currentOutfitStr);
+        setOutfit(existingOutfit);
+        setLoading(false);
+        return;
+      } catch (e) {
+        console.error('Failed to parse existing outfit:', e);
+      }
+    }
+    
+    // If no pre-generated outfit, generate now
     generateOutfit();
   }, []);
 
@@ -104,7 +118,7 @@ export default function ResultPage() {
 
   // Extract data from outfit
   const outfitTitle = outfit.styleMatch ? outfit.styleMatch.charAt(0).toUpperCase() + outfit.styleMatch.slice(1) : "Your Look";
-  const outfitDescription = "Our AI has curated this special look just for you. Explore the pieces, get style tips, and shop your new favorite outfit.";
+  const outfitDescription = outfit.description || "Our AI has curated this special look just for you. Explore the pieces, get style tips, and shop your new favorite outfit.";
   
   // Convert color palette to array format
   const colorStory = Object.entries(outfit.colorPalette).map(([key, color]) => ({
@@ -153,7 +167,7 @@ export default function ResultPage() {
           />
           <div className={styles.outfitDetails}>
             <h3>Complete Outfit</h3>
-            <p>A stylish and comfortable outfit perfect for a weekend brunch or exploring the city. This combination balances casual comfort with a chic, put-together aesthetic.</p>
+            <p>{outfit.description || outfitDescription}</p>
             <div className={styles.outfitActions}>
               <button className={styles.saveBtn} onClick={handleSaveOutfit}>
                 {saved ? 'Saved!' : 'Save Outfit'}
