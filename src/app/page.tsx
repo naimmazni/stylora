@@ -26,6 +26,7 @@ export default function LandingPage() {
               <a href="#features" className={styles.navLink}>Features</a>
               <a href="#community" className={styles.navLink}>Community</a>
               <a href="#how-it-works" className={styles.navLink}>How it Works</a>
+              <a href="/tips" className={styles.navLink}>Tips</a>
               <div className={styles.navButtons}>
                 <button className={styles.loginButton} onClick={() => router.push('/dashboard')}>
                   Log In
@@ -39,6 +40,23 @@ export default function LandingPage() {
             <button className={styles.mobileMenuButton} onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
               {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
+            {/* Mobile Navigation */}
+            {mobileMenuOpen && (
+              <nav className={styles.mobileNav}>
+                <a href="#features" className={styles.navLink} onClick={() => setMobileMenuOpen(false)}>Features</a>
+                <a href="#community" className={styles.navLink} onClick={() => setMobileMenuOpen(false)}>Community</a>
+                <a href="#how-it-works" className={styles.navLink} onClick={() => setMobileMenuOpen(false)}>How it Works</a>
+                <a href="/tips" className={styles.navLink} onClick={() => setMobileMenuOpen(false)}>Tips</a>
+                <div className={styles.navButtons}>
+                  <button className={styles.loginButton} onClick={() => { setMobileMenuOpen(false); router.push('/dashboard'); }}>
+                    Log In
+                  </button>
+                  <button className={styles.signupButton} onClick={() => { setMobileMenuOpen(false); router.push('/onboarding'); }}>
+                    Sign Up Free
+                  </button>
+                </div>
+              </nav>
+            )}
           </div>
         </header>
 

@@ -135,6 +135,51 @@
   @media (min-width: 768px) {
     display: none;
   }
+ }
+
+.mobileNav {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: rgba(24, 17, 24, 0.98);
+  border-radius: 0 0 0.75rem 0.75rem;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.25);
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: 2rem 1.5rem 1.5rem 1.5rem;
+  z-index: 100;
+
+  .navLink {
+    color: white;
+    font-size: 1.125rem;
+    font-weight: 600;
+    text-decoration: none;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    transition: color 0.2s;
+
+    &:hover {
+      color: #ee2bee;
+    }
+  }
+
+  .navButtons {
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 1rem;
+    display: flex;
+  }
+
+  .loginButton, .signupButton {
+    width: 100%;
+    font-size: 1rem;
+  }
+
+  @media (min-width: 768px) {
+    display: none;
+  }
 }
 
 // Main

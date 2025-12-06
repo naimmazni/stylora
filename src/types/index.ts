@@ -5,11 +5,14 @@ export type EventType = 'casual' | 'work' | 'party' | 'formal' | 'date' | 'weddi
 
 export type StylePreference = 'minimalist' | 'trendy' | 'bold' | 'chic' | 'sporty' | 'vintage';
 
+export type Gender = 'male' | 'female' | 'other';
 export interface OnboardingData {
   skinTone: SkinTone;
   skinToneImage?: string;
   eventType: EventType;
   stylePreferences: StylePreference[];
+  gender?: Gender;
+  hijabi?: boolean;
 }
 
 // Outfit Types
