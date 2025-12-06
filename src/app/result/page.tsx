@@ -74,7 +74,7 @@ export default function ResultPage() {
   };
 
   const handleGenerateNew = () => {
-    generateOutfit();
+    router.push('/onboarding');
   };
 
   if (loading) {

@@ -6,10 +6,10 @@ import { useRouter } from 'next/navigation';
 import { Trophy, Zap, Shirt, Star, Award, TrendingUp } from 'lucide-react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
-import Button from '@/components/ui/Button';
-import { Card, CardHeader, CardContent } from '@/components/ui/Card';
-import ProgressBar from '@/components/ui/ProgressBar';
-import { Badge } from '@/components/ui/Badge';
+import Button from '@/components/Button';
+import { Card, CardHeader, CardContent } from '@/components/Card';
+import ProgressBar from '@/components/ProgressBar';
+import { Badge } from '@/components/Badge';
 import { BADGE_INFO, calculateLevel, getNextLevelPoints } from '@/lib/constants';
 import styles from './page.module.scss';
 
@@ -71,7 +71,7 @@ export default function DashboardPage() {
         {/* Stats Overview */}
         <div className={styles['stats-grid']}>
           <Card className={styles['stat-card']}>
-            <div className={styles['stat-icon']} style={{ background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)' }}>
+            <div className={styles['stat-icon']} style={{ background: 'linear-gradient(135deg, #1a3a32 0%, #2a5a4a 100%)' }}>
               <Trophy size={24} />
             </div>
             <div className={styles['stat-content']}>
@@ -81,7 +81,7 @@ export default function DashboardPage() {
           </Card>
 
           <Card className={styles['stat-card']}>
-            <div className={styles['stat-icon']} style={{ background: 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)' }}>
+            <div className={styles['stat-icon']} style={{ background: 'linear-gradient(135deg, #1a4a3a 0%, #2a6a5a 100%)' }}>
               <Shirt size={24} />
             </div>
             <div className={styles['stat-content']}>
@@ -91,7 +91,7 @@ export default function DashboardPage() {
           </Card>
 
           <Card className={styles['stat-card']}>
-            <div className={styles['stat-icon']} style={{ background: 'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)' }}>
+            <div className={styles['stat-icon']} style={{ background: 'linear-gradient(135deg, #2a5a4a 0%, #3a7a6a 100%)' }}>
               <Zap size={24} />
             </div>
             <div className={styles['stat-content']}>
@@ -101,7 +101,7 @@ export default function DashboardPage() {
           </Card>
 
           <Card className={styles['stat-card']}>
-            <div className={styles['stat-icon']} style={{ background: 'linear-gradient(135deg, #fa709a 0%, #fee140 100%)' }}>
+            <div className={styles['stat-icon']} style={{ background: 'linear-gradient(135deg, #1a3a32 0%, #3a7a6a 100%)' }}>
               <TrendingUp size={24} />
             </div>
             <div className={styles['stat-content']}>

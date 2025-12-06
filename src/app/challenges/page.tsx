@@ -6,10 +6,10 @@ import { useRouter } from 'next/navigation';
 import { Zap, Trophy, Star, Clock, CheckCircle, ArrowLeft } from 'lucide-react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
-import Button from '@/components/ui/Button';
-import { Card, CardHeader, CardContent } from '@/components/ui/Card';
-import { Badge } from '@/components/ui/Badge';
-import ProgressBar from '@/components/ui/ProgressBar';
+import Button from '@/components/Button';
+import { Card, CardHeader, CardContent } from '@/components/Card';
+import { Badge } from '@/components/Badge';
+import ProgressBar from '@/components/ProgressBar';
 import styles from './page.module.scss';
 
 export default function ChallengesPage() {
@@ -93,16 +93,6 @@ export default function ChallengesPage() {
     <div className={styles.challenges}>
       <Navbar />
       <div className={styles.container}>
-        <div className={styles.header}>
-          <Button
-            variant="ghost"
-            onClick={() => router.push('/dashboard')}
-            icon={<ArrowLeft size={20} />}
-          >
-            Back to Dashboard
-          </Button>
-        </div>
-
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}

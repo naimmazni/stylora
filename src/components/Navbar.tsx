@@ -27,7 +27,7 @@ export default function Navbar({
   const navLinks = [
     { href: '/', label: 'Home' },
     { href: '/dashboard', label: 'Dashboard' },
-    { href: '/generate', label: 'Generate' },
+    { href: '/challenges', label: 'Challenges' },
     { href: '/tips', label: 'Tips' },
   ];
 
@@ -38,9 +38,13 @@ export default function Navbar({
       <div className={styles.navbarContent}>
         {/* Logo */}
         <Link href="/" className={styles.logo}>
-          <svg className={styles.logoIcon} fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
-            <path d="M44 4H30.6666V17.3334H17.3334V30.6666H4V44H44V4Z" fill="currentColor" />
-          </svg>
+          <img 
+            src="/favicon.ico" 
+            alt="Stylora logo" 
+            className={styles.logoIcon}
+            width={32}
+            height={32}
+          />
           <h2 className={styles.logoText}>Stylora</h2>
         </Link>
 

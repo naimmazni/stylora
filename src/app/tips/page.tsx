@@ -16,13 +16,13 @@ export default function TipsPage() {
             <nav className={styles.sidebarNav}>
               <ul>
                 <li>
-                  <a className={styles.activeNavItem} href="#">Warm Tones</a>
+                  <a className={styles.navItem} href="#warm-tone-analysis">Warm Tones</a>
                 </li>
                 <li>
-                  <a className={styles.navItem} href="#">Cool Tones</a>
+                  <a className={styles.navItem} href="#cool-tone-analysis">Cool Tones</a>
                 </li>
                 <li>
-                  <a className={styles.navItem} href="#">Neutral Tones</a>
+                  <a className={styles.navItem} href="#neutral-tone-analysis">Neutral Tones</a>
                 </li>
               </ul>
             </nav>
@@ -48,9 +48,9 @@ export default function TipsPage() {
                   </div>
                   <figure className={styles.portraitImageContainer}>
                     <img
-                      alt="Woman with warm undertones"
+                      alt="Person with warm undertones wearing warm colors"
                       className={styles.portraitImage}
-                      src="https://lh3.googleusercontent.com/aida-public/AB6AXuCSKw7aqTr_2EXlfZsAEC5bTHZ3okcakrIJzfB0CGiEz2nvBloFXcPkvyzQK1K-QR4qSEoDZE7o1tWS_wY4L2PmkTB3quEgJkk_2Jz1Bwk4u0wwaFiepQm__3j0bh9tp13Xkl8OftX0Q4ng4Upysk2Mb_H2FInBGF_pMVd99GKGYNDclcQgGliuG1lWal4sEi_8ycJvxZ-yWE8n16nwmSa3lPcrOz-KHltu6wtttD0Pb8L5fs2EV-dcMnNEA0H6EvFq8cp9f0u3SdY"
+                      src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=400&h=400&fit=crop&q=80"
                     />
                     <figcaption>Figure 1: Warm Undertone Manifestation with Gold & Earth Tones</figcaption>
                   </figure>
@@ -59,19 +59,19 @@ export default function TipsPage() {
                   <div className={styles.swatchGridContainer}>
                     <div className={styles.swatchGrid}>
                       <figure className={styles.swatchItem}>
-                        <img alt="Golden Hour fabric swatch" className={styles.swatchImage} src="https://lh3.googleusercontent.com/aida-public/AB6AXuBUrP3M7E0JKiE-OWkohT8p4w89Cb3HN13V9VM9nSm7TmYCDwLMIIuA-CB1mSv0vMv4L2piDR_yKsVBRfoBHRTCzSbru6v0m_4BmrCXZ65na4TwrhedW51grW3Ipg7mOpmNMQkodgnxoXzJ9BrmOustUWWrljmKJ6MPIXrajxr-F6OX8TJkdwRbibX8_GgC8D2pJfSsT4XtuIxnoUAiHQ7JR67umuCHUbRig9jjPAr2QnnYc6DyyhUZ2KuzWsLdGg68TNThMSsdGWU" />
+                        <div className={styles.swatchImage} style={{ backgroundColor: '#DAA520' }} />
                         <figcaption>Golden Hour</figcaption>
                       </figure>
                       <figure className={styles.swatchItem}>
-                        <img alt="Rust fabric swatch" className={styles.swatchImage} src="https://lh3.googleusercontent.com/aida-public/AB6AXuARgGnUP-mh4Fukg1xkOikZWdpaEutwUdLL9zjLyoNX5zX4t4nmqc-Z98c2e25GTbcsaCewnMF26dncBs0epjdkH4EkMxjjnqBeW3vJUZ8zwwW5NDQODJ-av5NTMSofhm-RgXRFvIJLRRTkzNh6PhQ__36ZYtwgkb1QnBlXtcC5c9hzrlDB1N9-GdRaliAbykLiiSHGN-65PPSL5fQyEgl3Wsv92RfS5jonlPYG7UE153eWsvIpTfyW3DvHybU3zewlMCvv5ZYXbrY" />
+                        <div className={styles.swatchImage} style={{ backgroundColor: '#B7410E' }} />
                         <figcaption>Rust</figcaption>
                       </figure>
                       <figure className={styles.swatchItem}>
-                        <img alt="Olive fabric swatch" className={styles.swatchImage} src="https://lh3.googleusercontent.com/aida-public/AB6AXuA9YqLTZuNqFptHr7UAw1L7HYdaUx99feTLiGmj-gaYI48-Xcvz53ClOyb1nmjUt-SVZa-c1vK60RFWp7o9_MU1wah2XhmX5Xesivv0ZaN7wQzTke_wbGCAg71ZGgmyNSbIap50RVuIWKqFFviOOm9aVDf0JbgUte9JmlJzVYxo7fbnnFb3pz5Zi7pv0Pa4r7mgLDEfhWAG0cfI8Lsk-db6H-AKbvRoCe3a47g9c40dWnXuEO4EbIIGMNsvP55n9mlunkdx6H0l2No" />
+                        <div className={styles.swatchImage} style={{ backgroundColor: '#6B8E23' }} />
                         <figcaption>Olive</figcaption>
                       </figure>
                       <figure className={styles.swatchItem}>
-                        <img alt="Cream fabric swatch" className={styles.swatchImage} src="https://lh3.googleusercontent.com/aida-public/AB6AXuAZrmUbOktBAvErm5tVLvqogOq1FOxEcNXnkFcS0y_ujkm-u8A3vrhcOrPdmi45h7s5uEDwpU4mcCWDasTegPkaAyTwk6C7bjEHE3tEoydIOPhjynLOYuq1Ta-lXQqo6ynSdOaHgJ6Kxo2l2Yq2Ky98TqKRWe27VvCB8NNqOUyI-sB5vEwPG0V7fS84YM8ITp8vxhrkPcuzBYxMG0ibSigATGcYwothKcK2HHj0I0hhrpSiiLqENqPKEVSV0IzRxCJlx_UNKoFXxY8" />
+                        <div className={styles.swatchImage} style={{ backgroundColor: '#FFFDD0' }} />
                         <figcaption>Cream</figcaption>
                       </figure>
                     </div>
@@ -89,17 +89,126 @@ export default function TipsPage() {
                 </p>
               </div>
             </section>
+
+            {/* Cool Tones Section */}
+            <section className={styles.section} id="cool-tone-analysis">
+              <h2>Cool Tone Analysis: Understanding Your Undertones</h2>
+              <div className={styles.flexRow}>
+                <div className={styles.flexCol}>
+                  <div className={styles.expandedBasis}>
+                    <h3 className={styles.expandedBasisTitle}>
+                      <span className={styles.icon}>
+                        <svg fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" height={20} width={20}>
+                          <path clipRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" fillRule="evenodd" />
+                        </svg>
+                      </span>
+                      Understanding Cool Undertones
+                    </h3>
+                    <p>
+                      Cool undertones have pink, red, or blue hints beneath the skin's surface. They are characterized by veins that appear blue or purple and a natural radiance when wearing silver jewelry. These tones often have a rosy quality and look best in jewel tones and cool colors.
+                    </p>
+                  </div>
+                  <figure className={styles.portraitImageContainer}>
+                    <img
+                      alt="Person with cool undertones wearing cool colors"
+                      className={styles.portraitImage}
+                      src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=400&fit=crop&q=80"
+                    />
+                    <figcaption>Figure 2: Cool Undertone Manifestation with Silver & Jewel Tones</figcaption>
+                  </figure>
+                </div>
+                <div className={styles.flexCol}>
+                  <div className={styles.swatchGridContainer}>
+                    <div className={styles.swatchGrid}>
+                      <figure className={styles.swatchItem}>
+                        <div className={styles.swatchImage} style={{ backgroundColor: '#1B3A6B' }} />
+                        <figcaption>Navy Blue</figcaption>
+                      </figure>
+                      <figure className={styles.swatchItem}>
+                        <div className={styles.swatchImage} style={{ backgroundColor: '#50C878' }} />
+                        <figcaption>Emerald</figcaption>
+                      </figure>
+                      <figure className={styles.swatchItem}>
+                        <div className={styles.swatchImage} style={{ backgroundColor: '#8B3A62' }} />
+                        <figcaption>Berry</figcaption>
+                      </figure>
+                      <figure className={styles.swatchItem}>
+                        <div className={styles.swatchImage} style={{ backgroundColor: '#B8C5D6' }} />
+                        <figcaption>Icy Gray</figcaption>
+                      </figure>
+                    </div>
+                    <p className={styles.swatchGridCaption}>Key Cool Palette Swatches</p>
+                  </div>
+                </div>
+              </div>
+              <div className={styles.colorTheoryContent}>
+                <h3>Applying Cool Tones: Enhancing Your Harmony</h3>
+                <p>
+                  Cool colors complement your skin's natural coolness, creating a sophisticated glow. Focus on jewel tones like sapphire, emerald, amethyst, and ruby. Navy, burgundy, and cool grays also work beautifully. Avoid warm oranges, yellows, and browns that can make cool skin look washed out. Embrace silver and platinum accessories to enhance your natural beauty.
+                </p>
+              </div>
+            </section>
+
+            {/* Neutral Tones Section */}
+            <section className={styles.section} id="neutral-tone-analysis">
+              <h2>Neutral Tone Analysis: Understanding Your Undertones</h2>
+              <div className={styles.flexRow}>
+                <div className={styles.flexCol}>
+                  <div className={styles.expandedBasis}>
+                    <h3 className={styles.expandedBasisTitle}>
+                      <span className={styles.icon}>
+                        <svg fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" height={20} width={20}>
+                          <path clipRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" fillRule="evenodd" />
+                        </svg>
+                      </span>
+                      Understanding Neutral Undertones
+                    </h3>
+                    <p>
+                      Neutral undertones have a balanced mix of warm and cool tones beneath the skin's surface. They are characterized by veins that appear both blue and green, and they look good in both gold and silver jewelry. These versatile tones can wear a wide range of colors beautifully.
+                    </p>
+                  </div>
+                  <figure className={styles.portraitImageContainer}>
+                    <img
+                      alt="Person with neutral undertones wearing neutral colors"
+                      className={styles.portraitImage}
+                      src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=400&h=400&fit=crop&q=80"
+                    />
+                    <figcaption>Figure 3: Neutral Undertone Versatility</figcaption>
+                  </figure>
+                </div>
+                <div className={styles.flexCol}>
+                  <div className={styles.swatchGridContainer}>
+                    <div className={styles.swatchGrid}>
+                      <figure className={styles.swatchItem}>
+                        <div className={styles.swatchImage} style={{ backgroundColor: '#9CAF88' }} />
+                        <figcaption>Sage Green</figcaption>
+                      </figure>
+                      <figure className={styles.swatchItem}>
+                        <div className={styles.swatchImage} style={{ backgroundColor: '#C8A5A5' }} />
+                        <figcaption>Dusty Rose</figcaption>
+                      </figure>
+                      <figure className={styles.swatchItem}>
+                        <div className={styles.swatchImage} style={{ backgroundColor: '#9B8B7E' }} />
+                        <figcaption>Taupe</figcaption>
+                      </figure>
+                      <figure className={styles.swatchItem}>
+                        <div className={styles.swatchImage} style={{ backgroundColor: '#F5F5F0' }} />
+                        <figcaption>Soft White</figcaption>
+                      </figure>
+                    </div>
+                    <p className={styles.swatchGridCaption}>Key Neutral Palette Swatches</p>
+                  </div>
+                </div>
+              </div>
+              <div className={styles.colorTheoryContent}>
+                <h3>Applying Neutral Tones: Maximizing Your Versatility</h3>
+                <p>
+                  Neutral undertones offer the most versatility in color choices. You can wear both warm and cool colors successfully, making you adaptable to many styles. Focus on muted, sophisticated tones like sage, dusty rose, taupe, and soft white. Both gold and silver jewelry work beautifully. Experiment with a wide color palette to discover what makes you feel most confident.
+                </p>
+              </div>
+            </section>
           </main>
         </div>
-        <footer className={styles.footer}>
-          <div className={styles.footerContainer}>
-            <nav className={styles.footerNav}>
-              <a className={styles.footerLink} href="#">About Us</a>
-              <a className={styles.footerLink} href="#">Terms & Conditions</a>
-              <a className={styles.footerLink} href="#">Contact</a>
-            </nav>
-          </div>
-        </footer>
       </div>
 
       <Footer />

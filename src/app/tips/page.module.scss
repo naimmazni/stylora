@@ -1,55 +1,4 @@
-// ==========================
-// VARIABLES (must be on top)
-// ==========================
-$brand-green: #1a3a32;
-$brand-cream: #f5f0e8;
-$brand-cream-active: #e0dace;
-$brand-dark: #1c1c1c;
-$brand-footer-bg: #333333;
-
-
-// ==========================
-// TOP NAVIGATION
-// ==========================
-.topNav {
-	width: 100%;
-	background: $brand-green;
-	padding: 0.5rem 0;
-	box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-}
-
-.topNavContainer {
-	max-width: 1200px;
-	margin: 0 auto;
-	display: flex;
-	align-items: center;
-	gap: 2rem;
-	padding: 0 2rem;
-}
-
-.topNavLink {
-	color: $brand-cream;
-	text-decoration: none;
-	font-family: 'Source Sans 3', sans-serif;
-	font-size: 1.1rem;
-	font-weight: 600;
-	padding: 0.5rem 1rem;
-	border-radius: 0.375rem;
-	transition: background-color 0.2s ease, color 0.2s ease;
-	background-color: transparent;
-
-	&:hover {
-		background-color: $brand-cream-active;
-		color: $brand-dark;
-	}
-}
-
-.topNavLinkActive {
-	@extend .topNavLink;
-	background-color: $brand-cream-active;
-	color: $brand-dark;
-}
-
+@import '@/styles/variables';
 
 // ==========================
 // PAGE STYLES
@@ -59,6 +8,7 @@ $brand-footer-bg: #333333;
 	color: $brand-dark;
 	font-family: 'Source Sans 3', sans-serif;
 	min-height: 100vh;
+	scroll-behavior: smooth;
 }
 
 .pageContainer {
@@ -70,14 +20,21 @@ $brand-footer-bg: #333333;
 .mainWrapper {
 	display: flex;
 	flex-grow: 1;
+	position: relative;
 }
 
 .sidebar {
 	width: 25%;
 	background: $brand-green;
 	color: $brand-cream;
-	padding: 3rem;
+	padding: 6rem 3rem 3rem 3rem;
 	display: none;
+	position: fixed;
+	top: 0;
+	left: 0;
+	height: 100vh;
+	overflow-y: auto;
+	z-index: 10;
 
 	@media (min-width: 1024px) {
 		display: block;
@@ -89,6 +46,7 @@ $brand-footer-bg: #333333;
 	font-family: 'Playfair Display', serif;
 	line-height: 1.1;
 	margin-bottom: 3rem;
+	color: $white;
 }
 
 .sidebarNav ul {
@@ -96,6 +54,9 @@ $brand-footer-bg: #333333;
 	flex-direction: column;
 	gap: 0.5rem;
 	font-size: 1.125rem;
+	list-style: none;
+	padding: 0;
+	margin: 0;
 }
 
 .activeNavItem {
@@ -110,7 +71,9 @@ $brand-footer-bg: #333333;
 	display: block;
 	padding: 0.75rem 1.5rem;
 	border-radius: 0.5rem;
-	transition: 0.2s, color 0.2s;
+	transition: background-color 0.2s, color 0.2s;
+	text-decoration: none;
+	color: $brand-cream;
 
 	&:hover {
 		background: $brand-cream-active;
@@ -128,12 +91,14 @@ $brand-footer-bg: #333333;
 
 	@media (min-width: 1024px) {
 		width: 75%;
+		margin-left: 25%;
 		padding: 4rem;
 	}
 }
 
 .section {
 	margin-bottom: 4rem;
+	scroll-margin-top: 2rem;
 }
 
 .section h2 {
@@ -243,38 +208,4 @@ $brand-footer-bg: #333333;
 .colorTheoryContent h3 {
 	font-size: 1.125rem;
 	font-weight: 600;
-}
-
-
-// ==========================
-// FOOTER
-// ==========================
-.footer {
-	background: $brand-footer-bg;
-	color: #ccc;
-	padding: 1.5rem 0;
-}
-
-.footerContainer {
-	max-width: 1200px;
-	margin: 0 auto;
-	padding: 0 1.5rem;
-}
-
-.footerNav {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	gap: 1.5rem;
-	font-size: 0.95rem;
-}
-
-.footerLink {
-	color: #ccc;
-	text-decoration: none;
-	transition: color 0.2s;
-
-	&:hover {
-		color: #fff;
-	}
 }

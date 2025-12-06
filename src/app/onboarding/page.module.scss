@@ -274,25 +274,21 @@
   position: relative;
   padding: $spacing-xl;
   border-radius: 12px;
-  border: 2px solid #e2e8f0;
+  border: 2px solid $brand-green;
   cursor: pointer;
   transition: all 0.2s ease;
-  background: white;
-  
-  @media (prefers-color-scheme: dark) {
-    background: #1e293b;
-    border-color: #334155;
-  }
+  background: $brand-green;
   
   &:hover {
-    border-color: $brand-green;
+    border-color: darken($brand-green, 10%);
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(26, 58, 50, 0.15);
+    box-shadow: 0 4px 12px rgba(26, 58, 50, 0.25);
   }
   
   &.selected {
     border-color: $brand-green;
-    background: rgba(26, 58, 50, 0.05);
+    background: darken($brand-green, 5%);
+    box-shadow: 0 0 0 4px rgba(26, 58, 50, 0.2);
     
     .check-badge {
       transform: scale(1);
@@ -303,22 +299,15 @@
     h3 {
       font-size: 18px;
       font-weight: 700;
-      color: #0f172a;
+      color: $brand-cream;
       margin: 0 0 $spacing-xs 0;
-      
-      @media (prefers-color-scheme: dark) {
-        color: #ffffff;
-      }
     }
     
     p {
       font-size: 14px;
-      color: #64748b;
+      color: $brand-cream;
+      opacity: 0.8;
       margin: 0;
-      
-      @media (prefers-color-scheme: dark) {
-        color: #94a3b8;
-      }
     }
   }
 }

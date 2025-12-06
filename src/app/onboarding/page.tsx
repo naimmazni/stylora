@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useRouter } from 'next/navigation';
 import { Check, ArrowRight, ArrowLeft, Upload } from 'lucide-react';
-import Button from '@/components/ui/Button';
+import Button from '@/components/Button';
 import { OnboardingData, SkinTone, EventType, StylePreference } from '@/types';
 import { SKIN_TONES, EVENT_TYPES, STYLE_PREFERENCES } from '@/lib/constants';
 import styles from './page.module.scss';

@@ -4,14 +4,14 @@
 .dashboard {
   min-height: 100vh;
   background: $brand-cream;
-  padding: $spacing-xl;
   font-family: 'Source Sans 3', sans-serif;
   color: $brand-dark;
 }
 
 .container {
   @include container;
-  max-width: 1400px;
+  max-width: 1200px;
+  padding: $spacing-2xl $spacing-xl;
 }
 
 .header {
