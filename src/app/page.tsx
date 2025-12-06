@@ -64,9 +64,9 @@ export default function LandingPage() {
                 <div className={styles.featureIcon}>
                   <Users size={32} />
                 </div>
-                <h3 className={styles.featureTitle}>Community Closet</h3>
+                <h3 className={styles.featureTitle}>Shop with Ease</h3>
                 <p className={styles.featureDescription}>
-                  Share your looks, discover new trends, and borrow inspiration from a global closet.
+                  Every outfit comes with direct Shopee links. Browse curated items, compare prices, and shop your perfect look instantly.
                 </p>
               </div>
             </div>
@@ -85,9 +85,9 @@ export default function LandingPage() {
                   <div className={styles.stepLine}></div>
                 </div>
                 <div className={styles.stepContent}>
-                  <h3 className={styles.stepTitle}>1. Upload Your Closet</h3>
+                  <h3 className={styles.stepTitle}>1. Share Your Style</h3>
                   <p className={styles.stepDescription}>
-                    Easily digitize your wardrobe by snapping photos of your clothes.
+                    Tell us your preferences - from skin tone to event type and style choices.
                   </p>
                 </div>
               </div>
@@ -101,9 +101,9 @@ export default function LandingPage() {
                   <div className={styles.stepLine}></div>
                 </div>
                 <div className={styles.stepContent}>
-                  <h3 className={styles.stepTitle}>2. Get AI Recs</h3>
+                  <h3 className={styles.stepTitle}>2. Get AI Outfit</h3>
                   <p className={styles.stepDescription}>
-                    Our AI analyzes your items to create unique, personalized outfits for any occasion.
+                    Our AI creates personalized outfits with color palettes, style tips, and direct Shopee shopping links.
                   </p>
                 </div>
               </div>
@@ -116,9 +116,9 @@ export default function LandingPage() {
                   </div>
                 </div>
                 <div className={styles.stepContent}>
-                  <h3 className={styles.stepTitle}>3. Share & Compete</h3>
+                  <h3 className={styles.stepTitle}>3. Shop & Share</h3>
                   <p className={styles.stepDescription}>
-                    Join challenges, share your favorite looks with the community, and climb the leaderboard.
+                    Shop each item directly on Shopee, save your favorite looks, and share your style with friends.
                   </p>
                 </div>
               </div>
