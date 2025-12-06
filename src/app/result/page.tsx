@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { Heart, Share2, Lightbulb } from 'lucide-react';
-import { OutfitRecommendation } from '@/types';
+import { OutfitRecommendation, OnboardingData } from '@/types';
 import styles from './page.module.scss';
 
 export default function ResultPage() {
@@ -11,18 +11,54 @@ export default function ResultPage() {
   const [outfit, setOutfit] = useState<OutfitRecommendation | null>(null);
   const [loading, setLoading] = useState(true);
   const [saved, setSaved] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    // Get outfit data from localStorage
-    const savedOutfit = localStorage.getItem('currentOutfit');
-    if (savedOutfit) {
-      setOutfit(JSON.parse(savedOutfit));
+    generateOutfit();
+  }, []);
+
+  const generateOutfit = async () => {
+    setLoading(true);
+    setError(null);
+
+    try {
+      // Get onboarding data from localStorage
+      const onboardingDataStr = localStorage.getItem('onboardingData');
+      if (!onboardingDataStr) {
+        router.push('/onboarding');
+        return;
+      }
+
+      const onboardingData: OnboardingData = JSON.parse(onboardingDataStr);
+
+      const response = await fetch('/api/generate-outfit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          skinTone: onboardingData.skinTone,
+          eventType: onboardingData.eventType,
+          stylePreferences: onboardingData.stylePreferences,
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to generate outfit');
+      }
+
+      const data = await response.json();
+      setOutfit(data.outfit);
+      
+      // Save outfit to localStorage
+      localStorage.setItem('currentOutfit', JSON.stringify(data.outfit));
+    } catch (err) {
+      setError('Failed to generate outfit. Please try again.');
+      console.error(err);
+    } finally {
       setLoading(false);
-    } else {
-      // If no outfit data, redirect to generate page
-      router.push('/generate');
     }
-  }, [router]);
+  };
 
   const handleSaveOutfit = () => {
     // Save to saved outfits in localStorage
@@ -36,15 +72,32 @@ export default function ResultPage() {
   };
 
   const handleGenerateNew = () => {
-    router.push('/generate');
+    generateOutfit();
   };
 
-  if (loading || !outfit) {
+  if (loading) {
     return (
       <div className={styles.loading}>
-        <p>Loading your outfit...</p>
+        <h2>Generating your perfect outfit...</h2>
+        <p>Our AI stylist is working on personalized recommendations</p>
       </div>
     );
+  }
+
+  if (error) {
+    return (
+      <div className={styles.loading}>
+        <h2>Oops! Something went wrong</h2>
+        <p>{error}</p>
+        <button className={styles.generateBtn} onClick={generateOutfit}>
+          Try Again
+        </button>
+      </div>
+    );
+  }
+
+  if (!outfit) {
+    return null;
   }
 
   // Extract data from outfit
@@ -101,7 +154,7 @@ export default function ResultPage() {
         <div className={styles.breadcrumb}>
           <a href="/">Home</a>
           <span>/</span>
-          <a href="/generate">Generator</a>
+          <a href="/result">Generator</a>
           <span>/</span>
           <span>Your Outfit</span>
         </div>

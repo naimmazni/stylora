@@ -36,7 +36,7 @@ export default function OnboardingPage() {
     } else {
       // Complete onboarding and navigate to generation page
       localStorage.setItem('onboardingData', JSON.stringify(onboardingData));
-      router.push('/generate');
+      router.push('/result');
     }
   };
 
