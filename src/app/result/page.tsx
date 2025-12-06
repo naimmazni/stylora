@@ -13,6 +13,7 @@ export default function ResultPage() {
   const [outfit, setOutfit] = useState<OutfitRecommendation | null>(null);
   const [loading, setLoading] = useState(true);
   const [saved, setSaved] = useState(false);
+  const [shared, setShared] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
@@ -84,6 +85,36 @@ export default function ResultPage() {
       localStorage.setItem('savedOutfits', JSON.stringify(savedOutfits));
       setSaved(true);
       setTimeout(() => setSaved(false), 2000);
+    }
+  };
+
+  const handleShareOutfit = async () => {
+    if (!outfit) return;
+
+    const shareUrl = 'https://stylora-kintoni.vercel.app/result';
+    const shareData = {
+      title: `Stylora - ${outfitTitle}`,
+      text: `Check out my personalized outfit from Stylora! ${outfit.description || outfitDescription}`,
+      url: shareUrl,
+    };
+
+    try {
+      // Check if Web Share API is supported (mainly mobile devices)
+      if (navigator.share) {
+        await navigator.share(shareData);
+        setShared(true);
+        setTimeout(() => setShared(false), 2000);
+      } else {
+        // Fallback: copy link to clipboard
+        await navigator.clipboard.writeText(shareUrl);
+        setShared(true);
+        setTimeout(() => setShared(false), 2000);
+      }
+    } catch (err) {
+      // User cancelled share or clipboard failed
+      if ((err as Error).name !== 'AbortError') {
+        console.error('Error sharing:', err);
+      }
     }
   };
 
@@ -172,7 +203,9 @@ export default function ResultPage() {
               <button className={styles.saveBtn} onClick={handleSaveOutfit}>
                 {saved ? 'Saved!' : 'Save Outfit'}
               </button>
-              <button className={styles.shareBtn}>Share</button>
+              <button className={styles.shareBtn} onClick={handleShareOutfit}>
+                {shared ? 'Shared!' : 'Share'}
+              </button>
             </div>
           </div>
         </div>
