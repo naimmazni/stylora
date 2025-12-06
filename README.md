@@ -1,7 +1,5 @@
 # Stylora - AI-Powered Fashion Styling Platform
 
-![Stylora Logo](https://via.placeholder.com/800x200/667eea/ffffff?text=Stylora+-+AI-Powered+Fashion+Styling)
-
 Stylora is a comprehensive, gamified fashion styling platform that uses AI to provide personalized outfit recommendations. Built with Next.js 15, TypeScript, and powered by Anthropic Claude API, it offers an engaging user experience with challenges, badges, and shopping integration.
 
 ## ✨ Features
